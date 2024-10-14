@@ -9,7 +9,12 @@
 #include <fmt/ranges.h>
 
 int main(/*int argc, char *argv[]*/) {
-
+  if (glfwPlatformSupported(GLFW_PLATFORM_WAYLAND)) {
+    glfwInitHint(GLFW_PLATFORM, GLFW_PLATFORM_WAYLAND);
+    fmt::println("Wayland Support");
+  } else {
+    fmt::println("No Wayland Support");
+  }
   glfwInit();
   glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
   glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
@@ -24,6 +29,21 @@ int main(/*int argc, char *argv[]*/) {
     return -1;
   }
 
+  glfwSwapInterval(1);
+
   fmt::print(fmt::fg(fmt::color::red) | fmt::emphasis::bold, "Hello World\n");
+
+  while (!glfwWindowShouldClose(window)) {
+    glfwPollEvents();
+
+    glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
+    glClear(GL_COLOR_BUFFER_BIT);
+
+    glfwSwapBuffers(window);
+  }
+
+  // Clean up and terminate
+  glfwDestroyWindow(window);
+  // glfwTerminate();
   return 0;
 }

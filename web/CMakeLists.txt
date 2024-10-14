@@ -20,7 +20,6 @@ include(FetchContent)
 
 # WebAssembly specific flags
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -s USE_WEBGL2=1 -s FULL_ES3=1 -s WASM=1 -sUSE_GLFW=3")
-set(CMAKE_EXECUTABLE_SUFFIX ".html")
 
 # Source files
 file(GLOB_RECURSE SRC_FILES CONFIGURE_DEPENDS
@@ -50,5 +49,16 @@ if(MSVC)
     set_target_properties(${NAME} PROPERTIES LINK_FLAGS "/SUBSYSTEM:WINDOWS")
 endif()
 
+set(APP_FILES
+    "${CMAKE_SOURCE_DIR}/app/*"
+)
+
+
+add_custom_target(copy_html ALL
+    COMMAND ${CMAKE_COMMAND} -E copy ${APP_FILES} ${CMAKE_BINARY_DIR}/
+    COMMENT "Copying HTML files to the build directory"
+)
+
 target_compile_definitions(${NAME} PRIVATE CMAKE_EXPORT_COMPILE_COMMANDS=1)
+set_target_properties(${NAME} PROPERTIES LINK_FLAGS "-o index.js -O3")
 target_link_libraries(${NAME} fmt glad imgui)

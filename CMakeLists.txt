@@ -62,5 +62,5 @@ if(MSVC)
     set_target_properties(${NAME} PROPERTIES LINK_FLAGS "/SUBSYSTEM:WINDOWS")
 endif()
 target_compile_definitions(${NAME} PRIVATE CMAKE_EXPORT_COMPILE_COMMANDS=1)
-target_link_libraries(${NAME} fmt glfw glad vulkan glslang imgui)
+target_link_libraries(${NAME} fmt glfw glad glslang imgui)
 

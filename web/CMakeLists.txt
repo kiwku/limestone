@@ -17,11 +17,9 @@ project(${NAME})
 include(FetchContent)
 
 # Compiler flags for different build types
-set(CMAKE_CXX_FLAGS_RELEASE "-O3")
-set(CMAKE_CXX_FLAGS_DEBUG "-g -Wall -Wextra -O3 -pedantic")
 
 # WebAssembly specific flags
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -s USE_WEBGL2=1 -s FULL_ES3=1 -s WASM=1")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -s USE_WEBGL2=1 -s FULL_ES3=1 -s WASM=1 -sUSE_GLFW=3")
 set(CMAKE_EXECUTABLE_SUFFIX ".html")
 
 # Source files

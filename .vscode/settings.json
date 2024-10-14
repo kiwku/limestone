@@ -1,7 +1,8 @@
 {
   "files.associations": {
     "chrono": "cpp",
-    "*.inc": "cpp"
+    "*.inc": "cpp",
+    "iostream": "cpp"
   },
   "cSpell.words": [
     "glfw",

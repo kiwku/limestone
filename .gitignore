@@ -1,6 +1,9 @@
 build
 
 web/build
+web/external
+web/CMakeFiles
+web/CMakeCache.txt
 
 # Android
 src/android/.gradle

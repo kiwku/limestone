@@ -24,8 +24,10 @@ set(CMAKE_CXX_FLAGS_RELEASE "-O3")
 set(CMAKE_CXX_FLAGS_DEBUG "-g -Wall -Wextra -O3 -pedantic")
 
 file(GLOB_RECURSE SRC_FILES CONFIGURE_DEPENDS
-    "${PROJECT_SOURCE_DIR}/src/*.cpp"
-    "${PROJECT_SOURCE_DIR}/src/*.hpp"
+    "${PROJECT_SOURCE_DIR}/src/core/*.cpp"
+    "${PROJECT_SOURCE_DIR}/src/core/*.hpp"
+    "${PROJECT_SOURCE_DIR}/src/gui/*.cpp"
+    "${PROJECT_SOURCE_DIR}/src/gui/*.hpp"
 )
 add_subdirectory(${CMAKE_SOURCE_DIR}/external/fmt)
 add_subdirectory(${CMAKE_SOURCE_DIR}/external/glfw)

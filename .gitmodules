@@ -4,12 +4,9 @@
 [submodule "external/Vulkan-Headers"]
 	path = external/Vulkan-Headers
 	url = https://github.com/KhronosGroup/Vulkan-Headers/
-[submodule "external/glslang"]
-	path = external/glslang
-	url = https://github.com/KhronosGroup/glslang
 [submodule "external/VulkanMemoryAllocator"]
 	path = external/VulkanMemoryAllocator
 	url = https://github.com/GPUOpen-LibrariesAndSDKs/VulkanMemoryAllocator
-[submodule "external/imgui"]
-	path = external/imgui
-	url = https://github.com/ocornut/imgui
+[submodule "external/glslang"]
+	path = external/glslang
+	url = https://github.com/KhronosGroup/glslang

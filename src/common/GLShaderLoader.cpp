@@ -2,7 +2,7 @@
 
 namespace gl {
 
-static std::string readShader(const char *filepath) {
+std::string readShader(const char *filepath) {
   std::ifstream in(filepath, std::ios::binary);
   if (in) {
     std::string contents;
@@ -13,6 +13,7 @@ static std::string readShader(const char *filepath) {
     in.close();
     return (contents);
   }
+  std::cout << "ERROR: shader not found\n";
   throw(errno);
 }
 
@@ -87,4 +88,4 @@ void Shader::pasVec3(const glm::vec3 &vec3, const char *location) {
   glUniform3fv(transformLoc, 1, &vec3[0]);
 }
 
-}
+} // namespace gl

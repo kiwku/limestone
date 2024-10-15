@@ -3,7 +3,6 @@ cmake_minimum_required(VERSION 3.16)
 #TODO: Add ffmeg
 #TODO: Add stb
 #TODO: Add rcheevos
-#TODO: Add glad2
 
 
 set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Release>:Release>")
@@ -54,10 +53,12 @@ add_subdirectory(${CMAKE_SOURCE_DIR}/external/imgui)
 add_executable(${NAME} WIN32 ${SRC_FILES})
 
 if(PRODUCTION_BUILD)
-	target_compile_definitions(${NAME} PUBLIC ROMS_PATH="./roms/")
+    target_compile_definitions(${NAME} PUBLIC ROMS_PATH="${CMAKE_SOURCE_DIR}/roms/")
+    target_compile_definitions(${NAME} PUBLIC SHADER_PATH="${CMAKE_SOURCE_DIR}/shaders/")
+    target_compile_definitions(${NAME} PUBLIC PRODUCTION_BUILD) 
 else()
-	target_compile_definitions(${NAME} PUBLIC ROMS_PATH="${CMAKE_CURRENT_SOURCE_DIR}/roms/")
-  target_compile_definitions(${NAME} PUBLIC PRODUCTION_BUILD) 
+    target_compile_definitions(${NAME} PUBLIC ROMS_PATH="${CMAKE_SOURCE_DIR}/roms/")
+    target_compile_definitions(${NAME} PUBLIC SHADER_PATH="${CMAKE_SOURCE_DIR}/shaders/")
 endif()
 
 

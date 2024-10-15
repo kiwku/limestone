@@ -13,8 +13,6 @@
 
 namespace gl {
 
-static std::string readShader(const char *filepath);
-
 class Shader {
 public:
   Shader(const char *vertexShaderPath, const char *fragmentShaderPath);

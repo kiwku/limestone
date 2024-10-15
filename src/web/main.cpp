@@ -42,10 +42,13 @@ int main(/*int argc, char *argv[]*/) {
 
   glfwSwapInterval(1);
 
+  gl::Shader shader("shaders/ESmain.vert", "shaders/ESmain.frag");
+  openGL.shader = &shader;
+
   openGL.init();
 
   fmt::print(fmt::fg(fmt::color::red) | fmt::emphasis::bold, "Hello World\n");
 
-  emscripten_set_main_loop(main_loop, 0, 0);
+  emscripten_set_main_loop(main_loop, 0, 1);
   return 0;
 }

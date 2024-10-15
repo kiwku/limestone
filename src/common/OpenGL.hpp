@@ -1,5 +1,7 @@
 #pragma once
 
+#include "GLShaderLoader.hpp"
+
 #include <glad/gl.h>
 
 #include <GLFW/glfw3.h>
@@ -10,6 +12,8 @@ public:
   ~OpenGL();
   void init();
   void render();
+
+  gl::Shader *shader;
 
 private:
   unsigned int VBO, VAO, EBO;

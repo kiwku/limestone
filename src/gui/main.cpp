@@ -1,5 +1,7 @@
 #include <iostream>
 
+#include "../common/OpenGL.hpp"
+
 #include <glad/gl.h>
 
 #include <GLFW/glfw3.h>
@@ -31,6 +33,10 @@ int main(/*int argc, char *argv[]*/) {
 
   glfwSwapInterval(1);
 
+  OpenGL openGL;
+
+  openGL.init();
+
   fmt::print(fmt::fg(fmt::color::red) | fmt::emphasis::bold, "Hello World\n");
 
   while (!glfwWindowShouldClose(window)) {
@@ -38,6 +44,8 @@ int main(/*int argc, char *argv[]*/) {
 
     glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
+
+    openGL.render();
 
     glfwSwapBuffers(window);
   }

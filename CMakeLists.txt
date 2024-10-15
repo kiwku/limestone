@@ -24,6 +24,8 @@ set(CMAKE_CXX_FLAGS_RELEASE "-O3")
 set(CMAKE_CXX_FLAGS_DEBUG "-g -Wall -Wextra -O3 -pedantic")
 
 file(GLOB_RECURSE SRC_FILES CONFIGURE_DEPENDS
+    "${PROJECT_SOURCE_DIR}/src/common/*.cpp"
+    "${PROJECT_SOURCE_DIR}/src/common/*.hpp"
     "${PROJECT_SOURCE_DIR}/src/core/*.cpp"
     "${PROJECT_SOURCE_DIR}/src/core/*.hpp"
     "${PROJECT_SOURCE_DIR}/src/gui/*.cpp"

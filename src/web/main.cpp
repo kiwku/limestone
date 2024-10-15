@@ -3,9 +3,7 @@
 
 #include <iostream>
 
-#include <glad/gl.h>
-
-#include <GLFW/glfw3.h>
+#include "../common/OpenGL.hpp"
 
 #include <fmt/color.h>
 #include <fmt/core.h>
@@ -13,20 +11,25 @@
 
 GLFWwindow *window;
 
+OpenGL openGL;
+
+EMSCRIPTEN_KEEPALIVE
 void main_loop() {
   glfwPollEvents();
 
-  glClearColor(0.4f, 0.7f, 0.3f, 1.0f);
+  glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
   glClear(GL_COLOR_BUFFER_BIT);
+
+  openGL.render();
 
   glfwSwapBuffers(window);
 }
 
+EMSCRIPTEN_KEEPALIVE
 int main(/*int argc, char *argv[]*/) {
   glfwInit();
-  glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
-  glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
-  glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+  glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+  glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
 
   window = glfwCreateWindow(800, 800, "test", NULL, NULL);
   glfwMakeContextCurrent(window);
@@ -39,12 +42,10 @@ int main(/*int argc, char *argv[]*/) {
 
   glfwSwapInterval(1);
 
+  openGL.init();
+
   fmt::print(fmt::fg(fmt::color::red) | fmt::emphasis::bold, "Hello World\n");
 
-  emscripten_set_main_loop(main_loop, 0, 1);
-
-  // Clean up and terminate
-  glfwDestroyWindow(window);
-  // glfwTerminate();
+  emscripten_set_main_loop(main_loop, 0, 0);
   return 0;
 }

@@ -74,7 +74,10 @@
   "cSpell.words": [
     "glfw",
     "intrin",
+    "lowp",
     "OPENGL",
+    "Programiv",
+    "Shaderiv",
     "winapifamily"
   ],
   "C_Cpp.errorSquiggles": "disabled"

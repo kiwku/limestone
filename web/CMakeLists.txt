@@ -35,6 +35,7 @@ file(GLOB_RECURSE SRC_FILES CONFIGURE_DEPENDS
 # Specify binary directories for external libraries
 add_subdirectory(${CMAKE_SOURCE_DIR}/../external/fmt "${CMAKE_BINARY_DIR}/fmt_build")
 add_subdirectory(${CMAKE_SOURCE_DIR}/../external/glad "${CMAKE_BINARY_DIR}/glad_build")
+add_subdirectory(${CMAKE_SOURCE_DIR}/../external/glm "${CMAKE_BINARY_DIR}/glm_build")
 add_subdirectory(${CMAKE_SOURCE_DIR}/../external/imgui "${CMAKE_BINARY_DIR}/imgui_build")
 
 # Create the main executable
@@ -65,4 +66,4 @@ set(APP_FILES
 #)
 
 target_compile_definitions(${NAME} PRIVATE CMAKE_EXPORT_COMPILE_COMMANDS=1)
-target_link_libraries(${NAME} fmt glad imgui)
+target_link_libraries(${NAME} fmt glad glm imgui)

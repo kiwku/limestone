@@ -34,6 +34,7 @@ file(GLOB_RECURSE SRC_FILES CONFIGURE_DEPENDS
 add_subdirectory(${CMAKE_SOURCE_DIR}/external/fmt)
 add_subdirectory(${CMAKE_SOURCE_DIR}/external/glfw)
 add_subdirectory(${CMAKE_SOURCE_DIR}/external/glad)
+add_subdirectory(${CMAKE_SOURCE_DIR}/external/glm)
 add_subdirectory(${CMAKE_SOURCE_DIR}/external/Vulkan-Headers)
 add_subdirectory(${CMAKE_SOURCE_DIR}/external/VulkanMemoryAllocator)
 
@@ -64,5 +65,5 @@ if(MSVC)
     set_target_properties(${NAME} PROPERTIES LINK_FLAGS "/SUBSYSTEM:WINDOWS")
 endif()
 target_compile_definitions(${NAME} PRIVATE CMAKE_EXPORT_COMPILE_COMMANDS=1)
-target_link_libraries(${NAME} fmt glfw glad glslang imgui)
+target_link_libraries(${NAME} fmt glfw glad glm glslang imgui)
 

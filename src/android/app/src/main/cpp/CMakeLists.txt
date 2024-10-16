@@ -24,6 +24,20 @@ project("limestone")
 # System.loadLibrary() and pass the name of the library defined here;
 # for GameActivity/NativeActivity derived applications, the same library name must be
 # used in the AndroidManifest.xml file.
+
+set(MAIN_DIR "${PROJECT_SOURCE_DIR}/../../../../../..")
+
+add_subdirectory(${MAIN_DIR}/external/fmt "${CMAKE_BINARY_DIR}/fmt_build")
+add_subdirectory(${MAIN_DIR}/external/glad "${CMAKE_BINARY_DIR}/glad_build")
+
+file(GLOB_RECURSE SRC_FILES CONFIGURE_DEPENDS
+    "${MAIN_DIR}/src/common/*.cpp"
+    "${MAIN_DIR}/src/common/*.hpp"
+    "${MAIN_DIR}/src/core/*.cpp"
+    "${MAIN_DIR}/src/core/*.hpp"
+)
+
+
 add_library(${CMAKE_PROJECT_NAME} SHARED
         # List C/C++ source files with relative paths to this CMakeLists.txt.
         native-lib.cpp)
@@ -33,5 +47,7 @@ add_library(${CMAKE_PROJECT_NAME} SHARED
 # build script, prebuilt third-party libraries, or Android system libraries.
 target_link_libraries(${CMAKE_PROJECT_NAME}
         # List libraries link to the target library
+        fmt
+        glad
         android
         log)

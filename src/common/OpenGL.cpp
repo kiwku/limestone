@@ -2,6 +2,8 @@
 
 #include <iostream>
 
+namespace gl {
+
 float vertices[] = {
     0.5f, 0.5f, 0.0f,
     0.5f, -0.5f, 0.0f,
@@ -42,3 +44,9 @@ void OpenGL::render() {
   glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
   glBindVertexArray(0);
 }
+
+void OpenGL::setShader(Shader *shader) {
+  this->shader = shader;
+}
+
+} // namespace gl

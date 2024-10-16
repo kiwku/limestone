@@ -1,3 +1,4 @@
+
 #pragma once
 
 #include "GLShaderLoader.hpp"
@@ -5,7 +6,7 @@
 #include <glad/gl.h>
 
 #include <GLFW/glfw3.h>
-
+namespace gl {
 class OpenGL {
 public:
   OpenGL();
@@ -13,9 +14,10 @@ public:
   void init();
   void render();
 
-  gl::Shader *shader;
+  void setShader(Shader *shader);
 
 private:
+  Shader *shader;
   unsigned int VBO, VAO, EBO;
-  unsigned int shaderProgram;
 };
+} // namespace gl

@@ -11,7 +11,7 @@
 
 GLFWwindow *window;
 
-OpenGL openGL;
+gl::OpenGL openGL;
 
 EMSCRIPTEN_KEEPALIVE
 void main_loop() {
@@ -43,7 +43,7 @@ int main(/*int argc, char *argv[]*/) {
   glfwSwapInterval(1);
 
   gl::Shader shader("shaders/ESmain.vert", "shaders/ESmain.frag");
-  openGL.shader = &shader;
+  openGL.setShader(&shader);
 
   openGL.init();
 

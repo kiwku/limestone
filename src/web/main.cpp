@@ -42,6 +42,9 @@ int main(/*int argc, char *argv[]*/) {
 
   glfwSwapInterval(1);
 
+  gl::GLBuffers buffer;
+  openGL.setBuffer(&buffer);
+
   gl::Shader shader("shaders/ESmain.vert", "shaders/ESmain.frag");
   openGL.setShader(&shader);
 

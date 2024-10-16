@@ -1,6 +1,5 @@
 #include <iostream>
 
-#include "../common/GLShaderLoader.hpp"
 #include "../common/OpenGL.hpp"
 
 #include <glad/gl.h>
@@ -35,6 +34,9 @@ int main(/*int argc, char *argv[]*/) {
   glfwSwapInterval(1);
 
   gl::OpenGL openGL;
+
+  gl::GLBuffers buffer;
+  openGL.setBuffer(&buffer);
 
   gl::Shader shader(SHADER_PATH "COmain.vert", SHADER_PATH "COmain.frag");
   openGL.setShader(&shader);

@@ -1,11 +1,8 @@
 
 #pragma once
 
+#include "GLBuffers.hpp"
 #include "GLShaderLoader.hpp"
-
-#include <glad/gl.h>
-
-#include <GLFW/glfw3.h>
 namespace gl {
 class OpenGL {
 public:
@@ -15,9 +12,11 @@ public:
   void render();
 
   void setShader(Shader *shader);
+  void setBuffer(GLBuffers *glBuffer);
 
 private:
   Shader *shader;
+  GLBuffers *buffer;
   unsigned int VBO, VAO, EBO;
 };
 } // namespace gl

@@ -34,8 +34,8 @@ add_subdirectory(${CMAKE_SOURCE_DIR}/external/fmt)
 add_subdirectory(${CMAKE_SOURCE_DIR}/external/glfw)
 add_subdirectory(${CMAKE_SOURCE_DIR}/external/glad)
 add_subdirectory(${CMAKE_SOURCE_DIR}/external/glm)
-add_subdirectory(${CMAKE_SOURCE_DIR}/external/Vulkan-Headers)
-add_subdirectory(${CMAKE_SOURCE_DIR}/external/VulkanMemoryAllocator)
+#add_subdirectory(${CMAKE_SOURCE_DIR}/external/Vulkan-Headers)
+#add_subdirectory(${CMAKE_SOURCE_DIR}/external/VulkanMemoryAllocator)
 
 set(ENABLE_PCH OFF CACHE BOOL "Enables Precompiled header" FORCE)
 set(BUILD_EXTERNAL OFF CACHE BOOL "Build external dependencies in /External" FORCE)
@@ -45,7 +45,7 @@ set(ENABLE_GLSLANG_BINARIES OFF CACHE BOOL "Builds glslangValidator and spirv-re
 set(ENABLE_HLSL OFF CACHE BOOL "Enables HLSL input support" FORCE)
 set(ENABLE_OPT OFF CACHE BOOL "Enables spirv-opt capability if present" FORCE)
 set(ENABLE_CTEST OFF CACHE BOOL "Enables testing" FORCE)
-add_subdirectory(${CMAKE_SOURCE_DIR}/external/glslang)
+#add_subdirectory(${CMAKE_SOURCE_DIR}/external/glslang)
 
 
 add_subdirectory(${CMAKE_SOURCE_DIR}/external/imgui)
@@ -66,5 +66,5 @@ if(MSVC)
     set_target_properties(${NAME} PROPERTIES LINK_FLAGS "/SUBSYSTEM:WINDOWS")
 endif()
 target_compile_definitions(${NAME} PRIVATE CMAKE_EXPORT_COMPILE_COMMANDS=1)
-target_link_libraries(${NAME} fmt glfw glad glm glslang imgui)
+target_link_libraries(${NAME} fmt glfw glad glm imgui)
 

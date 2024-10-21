@@ -1,5 +1,6 @@
 #include <iostream>
 
+#include "../common/Debug.hpp"
 #include "../common/OpenGL.hpp"
 
 #include <glad/gl.h>
@@ -33,6 +34,7 @@ int main(/*int argc, char *argv[]*/) {
 
   glfwSwapInterval(1);
 
+  Debug debug;
   gl::OpenGL openGL;
 
   gl::GLBuffers buffer;
@@ -43,7 +45,8 @@ int main(/*int argc, char *argv[]*/) {
 
   openGL.init();
 
-  fmt::print(fmt::fg(fmt::color::red) | fmt::emphasis::bold, "Hello World\n");
+  debug.Log("COS");
+  debug.Error("COS2");
 
   while (!glfwWindowShouldClose(window)) {
     glfwPollEvents();

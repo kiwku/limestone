@@ -3,15 +3,13 @@
 
 #include <iostream>
 
+#include "../common/Debug.hpp"
 #include "../common/OpenGL.hpp"
-
-#include <fmt/color.h>
-#include <fmt/core.h>
-#include <fmt/ranges.h>
 
 GLFWwindow *window;
 
 gl::OpenGL openGL;
+Debug debug;
 
 EMSCRIPTEN_KEEPALIVE
 void main_loop() {
@@ -41,6 +39,9 @@ int main(/*int argc, char *argv[]*/) {
   }
 
   glfwSwapInterval(1);
+
+  debug.Log("COS");
+  debug.Error("COS2");
 
   gl::GLBuffers buffer;
   openGL.setBuffer(&buffer);
